@@ -70,12 +70,12 @@ const Navbar = () => {
 
                 }
 
-                <div className="w-8 h-8" data-tooltip-content={user && user.displayName} data-tooltip-id="profile">
-                    <Tooltip id="profile"></Tooltip>
-                    {
-                        user && <img className="w-8 h-8 rounded-2xl" src={user.photoURL} />
-                    }
-                </div>
+                {
+                   user && <div className="w-8 h-8" data-tooltip-content={user && user.displayName} data-tooltip-id="profile">
+                   <Tooltip id="profile"></Tooltip>
+                   <img className="w-8 h-8 rounded-2xl" src={user?user.photoURL:<CgProfile className="w-8 h-8"></CgProfile>} />
+                   </div>
+                }
             </div>
         </div>
     );
