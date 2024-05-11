@@ -3,6 +3,8 @@ import Category from "./Category";
 
 
 const Home = () => {
+
+
     return (
         <div>
             <Banner></Banner>
