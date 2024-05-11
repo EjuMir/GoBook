@@ -8,18 +8,17 @@ const Book = ({ data }) => {
         size: 30,
         value: rating,
         edit: false,
-        color:'red',
-        activeColor:'green'
+        activeColor:'orange'
       };
 
     return (
-        <div>
-            <div className="card w-72 bg-slate-200">
-                <figure><img className='h-72 w-full rounded-md' src={`${image}`} alt={`${name}`} /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">{name}</h2>
-                    <p>{author}</p>
-                    <p>{category}</p>
+        <div className='p-4'>
+            <div className="card lg:w-72 bg-cyan-200 border-2 border-opacity-50 border-cyan-700">
+                <figure><img className='h-56 lg:h-72 w-full rounded-md' src={`${image}`} alt={`${name}`} /></figure>
+                <div className="card-body h-72">
+                    <h2 className="card-title font-bold">{name}</h2>
+                    <p><span className='font-bold'>By: </span>{author}</p>
+                    <p><span className='font-bold'>Category: </span>{category}</p>
                     <p><ReactStars {...rate}></ReactStars></p>
                     <div className="card-actions justify-end">
                         <button className="btn btn-primary">Update</button>
