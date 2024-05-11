@@ -6,6 +6,9 @@ import Roots from "../Root/Roots";
 import SignIn from "../Authentication/SignIn/SignIn";
 import SignUp from "../Authentication/SignUp/SignUp";
 import Home from "../Layout/Home/Home";
+import AllBooks from "../Layout/AllBooks/AllBooks";
+import AddBooks from "../Layout/AddBooks/AddBooks";
+import BorrowedBooks from "../Layout/BorrowedBooks/BorrowedBooks";
 
 
 
@@ -25,6 +28,19 @@ const router = createBrowserRouter([
         {
           path:"/signUp",
           element:<SignUp></SignUp>
+        },
+        {
+          path:"/allBooks",
+          element:<AllBooks></AllBooks>,
+          loader:()=>fetch('http://localhost:5000/allBooks')
+        },
+        {
+          path:"/addBooks",
+          element:<AddBooks></AddBooks>
+        },
+        {
+          path:"/borrowedBooks",
+          element:<BorrowedBooks></BorrowedBooks>
         }
       ]
     },

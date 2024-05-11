@@ -30,9 +30,9 @@ const Navbar = () => {
 
     const navLink = <>
         <NavLink to='/' className={({ isActive }) => isActive ? 'bg-green-500 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >Home</NavLink>
-        <NavLink to='/allTouristSpot' className={({ isActive }) => isActive ? 'bg-green-500 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >All Books</NavLink>
-        <NavLink to='/addTouristSpot' className={({ isActive }) => isActive ? 'bg-green-500 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >Add Books</NavLink>
-        <NavLink to='/MyList' className={({ isActive }) => isActive ? 'bg-green-500 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >Borrowed Books</NavLink>
+        <NavLink to='/allBooks' className={({ isActive }) => isActive ? 'bg-green-500 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >All Books</NavLink>
+        <NavLink to='/addBooks' className={({ isActive }) => isActive ? 'bg-green-500 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >Add Books</NavLink>
+        <NavLink to='/borrowedBooks' className={({ isActive }) => isActive ? 'bg-green-500 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >Borrowed Books</NavLink>
         <div className="text-center my-auto">
             <input onChange={handleChange} type="checkbox" className="toggle theme-controller bg-white border-sky-400 [--tglbg:theme(colors.sky.500)] checked:bg-blue-300 checked:border-blue-800 checked:[--tglbg:theme(colors.blue.900)] row-start-1 col-start-1 col-span-2" />
         </div>
