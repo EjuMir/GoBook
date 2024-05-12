@@ -5,22 +5,42 @@ import BookTable from "./BookTable";
 
 const BorrowedBooks = () => {
     const [borrow, setBorrow] = useState([]);
-    const {user} = useContext(AuthFirebase);
+    const { user } = useContext(AuthFirebase);
 
 
-    const url = `http://localhost:5000/borrowedBooks?email=${user.email}`
+    const url = `http://localhost:5000/borrowedBooks?email=${user?.email}`
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch(url)
-        .then(res=>res.json())
-        .then(data=>setBorrow(data))
-    },[])
-    
+            .then(res => res.json())
+            .then(data => setBorrow(data))
+    }, [url])
+
     return (
+
         <div>
-            {
-                borrow.map(element => <BookTable key={element._id} element={element}></BookTable>)
-            }
+            <div className="overflow-x-auto">
+                <table className="table">
+                    {/* head */}
+                    <thead>
+                        <tr>
+                            <td></td>
+                            <td>Name</td>
+                            <th>Category</th>
+                            <th>Borrowed Date</th>
+                            <th>Return Date</th>
+                        </tr>
+                    </thead>
+                    <tbody className="gap-5">
+                        {
+                            borrow.map(element => <BookTable key={element._id} element={element}></BookTable>)
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+
+
         </div>
     );
 };

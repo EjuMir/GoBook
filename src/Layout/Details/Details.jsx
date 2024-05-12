@@ -9,8 +9,9 @@ import Swal from "sweetalert2";
 
 const Details = () => {
     const detailofBook = useLoaderData();
-    const { name, image, category, description } = detailofBook;
+    const { name, image, category, description, quantity } = detailofBook;
     const { user } = useContext(AuthFirebase);
+    console.log(quantity);
 
     const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -54,6 +55,9 @@ const Details = () => {
                     text: `You must return it in ${returnDate}`,
                   });
                 form.reset();
+                let newQuantity = (quantity-1) 
+                axios.put('/allBooks', newQuantity)
+                .then(res => console.log(res.data))
             }
            })
     }
