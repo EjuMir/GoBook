@@ -81,11 +81,11 @@ const Details = () => {
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-3">
                                     <h1>Borrow Date:</h1>
-                                    <input type="date" name="borrowDate" placeholder="Return Date" className="input input-bordered input-md w-full max-w-xs" />
+                                    <input type="date" name="borrowDate" placeholder="Return Date" className="input input-bordered input-md w-full max-w-xs" required/>
                                 </div>
                                 <div className="mb-3">
                                     <h1>Return Date:</h1>
-                                    <input type="date" name="returnDate" placeholder="Return Date" className="input input-bordered input-md w-full max-w-xs" />
+                                    <input type="date" name="returnDate" placeholder="Return Date" className="input input-bordered input-md w-full max-w-xs" required/>
                                 </div>
                                 <div className="mb-3">
                                     <h1>Your Email:</h1>

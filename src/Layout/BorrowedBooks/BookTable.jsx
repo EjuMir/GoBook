@@ -1,6 +1,28 @@
+import axios from "axios";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 const BookTable = ({ element }) => {
-    const { image, name, borrowDate, returnDate, category } = element;
+    const {_id, image, name, borrowDate, returnDate, category } = element;
+    const [state, setState] = useState(element)
+
+    const handleReturn = (id) =>{
+        axios.put('http://localhost:5000/allBooks', element)
+        .then(res=>console.log(res.data))
+
+        axios.delete(`http://localhost:5000/borrowedBooks/${id}`, element)
+        .then(res=>{
+            if(res.data.deletedCount >= 1){
+                Swal.fire({
+                    icon: "success",
+                    title: "Your Book has been returned Successfully",
+                    text: "Come Back Soon",
+                  });
+                 
+            }
+            
+        })
+    }
 
     return (
             <tr className="bg-base-200">
@@ -9,6 +31,7 @@ const BookTable = ({ element }) => {
                 <td>{category}</td>
                 <td className="text-green-500 font-bold">{borrowDate}</td>
                 <td className="text-red-500 font-bold">{returnDate}</td>
+                <td><button onClick={()=>handleReturn(_id)} className="btn btn-secondary font-bold text-md">Return</button></td>
             </tr>
     );
 };
