@@ -51,7 +51,7 @@ const Navbar = () => {
                 </div>
                 <NavLink to='/'>
                     <div>
-                        <button className="btn bg-transparent lg:text-3xl font-bold">Go Book</button>
+                        <img className="w-12 h-12 lg:w-20 lg:h-16" src="https://seeklogo.com/images/S/sun-book-logo-E393C7C6AC-seeklogo.com.png" alt="" />
                     </div>
                 </NavLink>
             </div>
@@ -73,7 +73,7 @@ const Navbar = () => {
                 {
                    user && <div className="w-8 h-8" data-tooltip-content={user && user.displayName} data-tooltip-id="profile">
                    <Tooltip id="profile"></Tooltip>
-                   <img className="w-8 h-8 rounded-2xl" src={user?user.photoURL:<CgProfile className="w-8 h-8"></CgProfile>} />
+                   <img className="w-8 h-8 rounded-2xl" src={user? user?.photoURL:<CgProfile className="w-8 h-8"></CgProfile>} />
                    </div>
                 }
             </div>

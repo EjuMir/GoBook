@@ -12,7 +12,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 export default function App() {
     return (
-        <>
+        <div>
             <Swiper
                 id='swipe'
                 autoplay={{
@@ -58,6 +58,6 @@ export default function App() {
                 <SwiperSlide><img src="https://s4.scoopwhoop.com/anj/kit/0104612c-e9cc-4d1f-bcdd-5730f1efcff6.jpg" alt="" /></SwiperSlide>
                 <SwiperSlide><img src="https://img.apmcdn.org/76930dd3881506385612bf68c36c6c406c7ae278/uncropped/4cc4b6-20150304-catch22.jpg" alt="" /></SwiperSlide>
             </Swiper>
-        </>
+        </div>
     );
 }

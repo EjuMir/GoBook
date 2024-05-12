@@ -1,8 +1,10 @@
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import Swal from 'sweetalert2'
+
+// or via CommonJS
 
 const AddBooks = () => {
-
 
     const handleSubmit = e =>{
 
@@ -30,9 +32,18 @@ const AddBooks = () => {
        console.log(addBook);
 
        axios.post('http://localhost:5000/allBooks', addBook)
-       .then (res => console.log(res.data))
+       .then (res => {
+        if(res.data.insertedId){
+            Swal.fire({
+                icon: "success",
+                title: "Hooray! Your Book has been added",
+                text: "Go to All book section to find your copy",
+              });
+            form.reset();
+        }
+       })
 
-       form.reset();
+       
     }
 
 

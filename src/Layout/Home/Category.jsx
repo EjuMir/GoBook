@@ -13,15 +13,12 @@ const Category = () => {
     .then(data=>setBook(data))
    },[])
 
-   console.log(book);
-
-
    return (
-        <div className="my-14">
+        <div className="my-14 bg-green-300 p-4">
             <div>
-                <h2 className="text-3xl font-bold text-center mb-5">Select Your Category</h2>
+                <h2 className="text-3xl font-bold text-center mb-5 bg-gradient-to-br from-green-400 to-white">Select Your Category</h2>
             </div>
-            <div className="grid grid-cols-3 gap-3 place-items-center">
+            <div className="grid grid-cols-3 gap-7 place-items-center">
                 {
                    book.map(data=> <CategoryCard key={data._id} data={data}></CategoryCard>)
                 }
