@@ -9,8 +9,7 @@ import Home from "../Layout/Home/Home";
 import AllBooks from "../Layout/AllBooks/AllBooks";
 import AddBooks from "../Layout/AddBooks/AddBooks";
 import BorrowedBooks from "../Layout/BorrowedBooks/BorrowedBooks";
-
-
+import Category from "../Layout/Home/Category";
 
 const router = createBrowserRouter([
     {
@@ -46,7 +45,12 @@ const router = createBrowserRouter([
           path:"/allBooks/:id",
           element:<AllBooks></AllBooks>,
           loader:({params})=>fetch(`http://localhost:5000/allBooks/${params.id}`)
+        },
+        {
+          path:'/',
+          element:<Category></Category>
         }
+       
       ]
     },
   ]);

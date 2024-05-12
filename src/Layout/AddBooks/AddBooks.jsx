@@ -1,5 +1,4 @@
 import axios from "axios";
-import { CgCalendarDates } from "react-icons/cg";
 import { ToastContainer, toast } from "react-toastify";
 
 const AddBooks = () => {
