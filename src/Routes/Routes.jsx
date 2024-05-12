@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         },
         {
           path:"/borrowedBooks",
-          element:<BorrowedBooks></BorrowedBooks>
+          element:<BorrowedBooks></BorrowedBooks>,
         },
         {
           path:"/allBooks/:id",
@@ -55,8 +55,7 @@ const router = createBrowserRouter([
           path:'/details/:id',
           element:<Details></Details>,
           loader : ({params})=>fetch(`http://localhost:5000/details/${params.id}`)
-        }
-       
+        },
       ]
     },
   ]);

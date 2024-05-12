@@ -2,11 +2,14 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import Swal from 'sweetalert2'
 
+
 // or via CommonJS
 
 const AddBooks = () => {
+    
 
     const handleSubmit = e =>{
+        
 
        e.preventDefault();
        const form = e.target;
@@ -18,17 +21,18 @@ const AddBooks = () => {
        const contents = form.context.value;
        const category = form.category.value;
        const description = form.shortDes.value;
+       const email = form.email.value;
 
        if(rating>5){
         toast.error('Rating must be between 1-5');
         return ;
        }
        if(!/[A-Z]/.test(category)){
-        toast.error('Please put the first alphabet to capital');
+        toast.error('Please put the first alphabet to capital in Category');
         return;
        }
        
-       const addBook = {name, image, quantity, author, rating, contents, description, category};
+       const addBook = {name, image, quantity, author, rating, contents, description, category, email};
        console.log(addBook);
 
        axios.post('http://localhost:5000/allBooks', addBook)
@@ -68,7 +72,7 @@ const AddBooks = () => {
                             <input type="text" name="author" placeholder="Author" className="input input-bordered input-md w-full max-w-xs" />
                         </div>
                         <div>
-                            <input type="text" name="category" placeholder="Category" className="input input-bordered input-md w-full max-w-xs" />
+                            <input type="text" name="category" placeholder="Category" className="input input-bordered input-md w-full max-w-xs" required/>
                         </div>
                         <div>
                             <input type="number" name="rating" placeholder="Rating" className="input input-bordered input-md w-full max-w-xs" />
