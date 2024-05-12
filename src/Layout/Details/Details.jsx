@@ -55,11 +55,11 @@ const Details = () => {
                     text: `You must return it in ${returnDate}`,
                   });
                 form.reset();
-                let newQuantity = (quantity-1) 
-                axios.put('/allBooks', newQuantity)
-                .then(res => console.log(res.data))
+                
             }
            })
+           axios.put('http://localhost:5000/borrowedBooks', borrowBook)
+           .then(res=>console.log(res))
     }
 
     return (
