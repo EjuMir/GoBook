@@ -14,6 +14,7 @@ const Details = () => {
 
     const [modalIsOpen, setIsOpen] = useState(false);
 
+
     //styles for modal
     const customStyles = {
         content: {
@@ -48,15 +49,24 @@ const Details = () => {
          axios.post('http://localhost:5000/borrowedBooks', borrowBook)
          .then (res => {
             if(res.data.insertedId){
-                Swal.fire({
+                {Swal.fire({
                     icon: "success",
                     title: "You have borrowed this book",
                     text: `You must return it in ${returnDate}`,
-                  });
-                form.reset();
+                  })
+                .then((result)=>{
+                    if(result.isConfirmed){
+                        window.location.reload();
+                    }
+                })
+                }
+                
                 
             }
            })
+           
+                // form.reset();
+
            axios.put('http://localhost:5000/borrowedBooks', borrowBook)
            .then(res=>console.log(res))
     }
@@ -67,9 +77,16 @@ const Details = () => {
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <p>{description}</p>
+                <div>
+                    {
+                        quantity > 0 ? <h2 className="text-green-600 text-lg font-bold">Available Books : {quantity}</h2> : <h2 className="text-red-500 text-lg font-bold">Out Of Stock</h2>
+                    }
+                </div>
                 <div className="card-actions justify-end">
                     <div>
-                        <button className="btn btn-accent font-bold text-xl text-white" onClick={openModal}>Borrow</button>
+                        {
+                            quantity > 0 ? <button className="btn btn-accent font-bold text-xl text-white" onClick={openModal}>Borrow</button> : <button className="btn btn-accent font-bold text-xl text-white btn-disabled" onClick={openModal}>Borrow</button>
+                        }
                         <Modal
                             isOpen={modalIsOpen}
                             onRequestClose={closeModal}

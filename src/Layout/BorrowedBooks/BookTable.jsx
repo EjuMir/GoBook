@@ -16,7 +16,12 @@ const BookTable = ({ element }) => {
                     icon: "success",
                     title: "Your Book has been returned Successfully",
                     text: "Come Back Soon",
-                  });
+                  })
+                  .then((result)=>{
+                    if(result.isConfirmed){
+                        window.location.reload();
+                    }
+                  })
                  
             }
             
