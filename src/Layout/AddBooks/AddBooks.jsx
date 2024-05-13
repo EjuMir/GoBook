@@ -21,7 +21,8 @@ const AddBooks = () => {
        const contents = form.context.value;
        const category = form.category.value;
        const description = form.shortDes.value;
-       const email = form.email.value;
+       const quantityNum = parseInt(quantity);
+       
 
        if(rating>5){
         toast.error('Rating must be between 1-5');
@@ -32,7 +33,7 @@ const AddBooks = () => {
         return;
        }
        
-       const addBook = {name, image, quantity, author, rating, contents, description, category, email};
+       const addBook = {name, image, quantityNum, author, rating, contents, description, category};
        console.log(addBook);
 
        axios.post('http://localhost:5000/allBooks', addBook)
@@ -85,7 +86,7 @@ const AddBooks = () => {
                         </div>
                         </div>
                         <div>
-                            <input type="submit" value="Submit" className="btn btn-accent bg-green-900 text-white text-xl font-bold w-3/4 mt-5"/>
+                            <input type="submit" value="ADD BOOK" className="btn btn-accent bg-green-900 text-white text-xl font-bold w-3/4 mt-5"/>
                         </div>
                     </form>
                 </div>

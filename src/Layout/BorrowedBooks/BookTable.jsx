@@ -1,10 +1,9 @@
 import axios from "axios";
-import { useState } from "react";
 import Swal from "sweetalert2";
 
 const BookTable = ({ element }) => {
     const {_id, image, name, borrowDate, returnDate, category } = element;
-    const [state, setState] = useState(element)
+   
 
     const handleReturn = (id) =>{
         axios.put('http://localhost:5000/allBooks', element)
