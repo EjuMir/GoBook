@@ -15,13 +15,13 @@ const AddBooks = () => {
        const form = e.target;
        const name = form.name.value;
        const image = form.image.value;
-       const quantity = form.quantity.value;
+       const quantity = parseInt(form.quantity.value);
        const author = form.author.value;
        const rating = form.rating.value;
        const contents = form.context.value;
        const category = form.category.value;
        const description = form.shortDes.value;
-       const quantityNum = parseInt(quantity);
+       
        
 
        if(rating>5){
@@ -33,7 +33,7 @@ const AddBooks = () => {
         return;
        }
        
-       const addBook = {name, image, quantityNum, author, rating, contents, description, category};
+       const addBook = {name, image, quantity, author, rating, contents, description, category};
        console.log(addBook);
 
        axios.post('http://localhost:5000/allBooks', addBook)

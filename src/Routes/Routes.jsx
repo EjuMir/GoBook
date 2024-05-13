@@ -11,11 +11,15 @@ import AddBooks from "../Layout/AddBooks/AddBooks";
 import BorrowedBooks from "../Layout/BorrowedBooks/BorrowedBooks";
 import Category from "../Layout/Home/Category";
 import Details from "../Layout/Details/Details";
+import ErrorPage from "../ErrorPage/ErrorPage";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import UpdatePage from "../Layout/UpdatePage/UpdatePage";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Roots></Roots>,
+      errorElement: <ErrorPage></ErrorPage>,
       children: [
         {
           path:"/",
@@ -31,20 +35,20 @@ const router = createBrowserRouter([
         },
         {
           path:"/allBooks",
-          element:<AllBooks></AllBooks>,
+          element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
           loader:()=>fetch('http://localhost:5000/allBooks')
         },
         {
           path:"/addBooks",
-          element:<AddBooks></AddBooks>
+          element:<PrivateRoute><AddBooks></AddBooks></PrivateRoute> 
         },
         {
           path:"/borrowedBooks",
-          element:<BorrowedBooks></BorrowedBooks>,
+          element:<PrivateRoute><BorrowedBooks></BorrowedBooks></PrivateRoute>
         },
         {
           path:"/allBooks/:id",
-          element:<AllBooks></AllBooks>,
+          element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
           loader:({params})=>fetch(`http://localhost:5000/allBooks/${params.id}`)
         },
         {
@@ -53,9 +57,14 @@ const router = createBrowserRouter([
         },
         {
           path:'/details/:id',
-          element:<Details></Details>,
+          element:<PrivateRoute><Details></Details></PrivateRoute>,
           loader : ({params})=>fetch(`http://localhost:5000/details/${params.id}`)
         },
+        {
+          path:'/updatePage/:id',
+          element:<PrivateRoute><UpdatePage></UpdatePage></PrivateRoute>,
+          loader : ({params})=>fetch(`http://localhost:5000/updatePage/${params.id}`)
+        }
       ]
     },
   ]);

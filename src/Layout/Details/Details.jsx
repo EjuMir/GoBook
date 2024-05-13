@@ -1,5 +1,4 @@
 import { useLoaderData } from "react-router-dom";
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import { useContext, useState } from "react";
 import { AuthFirebase } from "../../Firebase/Firebase";
@@ -77,25 +76,29 @@ const Details = () => {
                             style={customStyles}
                             contentLabel="Example Modal"
                         >
-                            <h2>Do You Want To Borrow This Book?</h2>
+                            <h2 className="text-lg font-bold text-cyan-700 mb-3">Do You Want To Borrow This Book?</h2>
                             <form onSubmit={handleSubmit}>
                                 <div className="mb-3">
-                                    <h1>Borrow Date:</h1>
+                                    <h1 className="font-bold">Borrow Date:</h1>
                                     <input type="date" name="borrowDate" placeholder="Return Date" className="input input-bordered input-md w-full max-w-xs" required/>
                                 </div>
                                 <div className="mb-3">
-                                    <h1>Return Date:</h1>
+                                    <h1 className="font-bold">Return Date:</h1>
                                     <input type="date" name="returnDate" placeholder="Return Date" className="input input-bordered input-md w-full max-w-xs" required/>
+                                </div>
+                                <div className="mb-3">
+                                    <h1>Your Name:</h1>
+                                    <input type="text" placeholder="Your Name" className="input input-bordered input-md" defaultValue={user?.displayName} disabled required />
                                 </div>
                                 <div className="mb-3">
                                     <h1>Your Email:</h1>
                                     <input type="email" name="email" placeholder="email" className="input input-bordered input-md" defaultValue={user?.email} disabled required />
                                 </div>
                                 <div className="mb-3">
-                                    <input type="submit" value="Submit" className="btn btn-success text-white font-bold"/>
+                                    <input type="submit" value="Submit" className="btn btn-success text-white w-full font-bold"/>
                                 </div>
                             </form>
-                            <button className="btn btn-secondary text-lg font-bold" onClick={closeModal}>X</button>
+                            <button className="btn btn-secondary w-full text-lg font-bold" onClick={closeModal}>Close</button>
                         </Modal>
                     </div>
                 </div>

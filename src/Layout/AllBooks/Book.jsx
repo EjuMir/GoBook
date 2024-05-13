@@ -24,7 +24,7 @@ const Book = ({ data }) => {
                     <p><ReactStars {...rate}></ReactStars></p>
 
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Update</button>
+                        <Link to={`/updatePage/${_id}`}><button className="btn btn-primary">Update</button></Link>
                     </div>
                 </div>
             </div>
