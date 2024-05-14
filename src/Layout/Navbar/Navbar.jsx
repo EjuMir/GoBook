@@ -54,7 +54,8 @@ const Navbar = () => {
                 </div>
                 <NavLink to='/'>
                     <div>
-                        <img className="w-12 h-12 lg:w-20 lg:h-16" src="https://seeklogo.com/images/S/sun-book-logo-E393C7C6AC-seeklogo.com.png" alt="" />
+                        <h2 className="text-white text-md font-bold">GO BOOK</h2>
+                        <img className="w-12 h-12 lg:w-20 lg:h-16" src="https://www.freepnglogos.com/uploads/book-png/book-clipart-transparent-17.png" alt="" />
                     </div>
                 </NavLink>
             </div>

@@ -69,7 +69,6 @@ const router = createBrowserRouter([
         {
           path:'/',
           element: <BestSelling></BestSelling>,
-          loader:()=>fetch('http://localhost:5000/allBooks')
         }
       ]
     },

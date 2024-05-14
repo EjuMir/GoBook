@@ -18,7 +18,7 @@ const UpdatePage = () => {
         const name = form.name.value;
         const image = form.image.value;
         const author = form.author.value;
-        const rating = form.rating.value;
+        const rating = parseInt(form.rating.value);
         const category = form.category.value;
 
 
