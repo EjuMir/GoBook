@@ -48,7 +48,7 @@ const SignUp = () => {
             setError('Must have a LowerCase character');
             return;
         }
-        else if(/[!@#$%^&*(),.?":{}|<>]/.test(password)){
+        else if(!/[!@#$%^&*(),.?":{}|<>]/.test(password)){
             setError('Must have an special character');
             return;
         }

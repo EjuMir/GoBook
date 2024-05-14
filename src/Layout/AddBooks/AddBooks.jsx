@@ -36,7 +36,7 @@ const AddBooks = () => {
         const addBook = { name, image, quantity, author, rating, contents, description, category };
         console.log(addBook);
 
-        axios.post('http://localhost:5000/allBooks', addBook)
+        axios.post('http://localhost:5000/allBooks', addBook, {withCredentials:true})
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({

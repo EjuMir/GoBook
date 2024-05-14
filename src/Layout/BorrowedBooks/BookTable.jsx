@@ -29,7 +29,7 @@ const BookTable = ({ element }) => {
     }
 
     return (
-            <tr className="bg-base-200">
+            <tr>
                 <td className="w-32 h-36"><img src={image} alt="" /></td>
                 <td>{name}</td>
                 <td>{category}</td>
