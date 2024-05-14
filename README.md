@@ -1,8 +1,18 @@
-# React + Vite
+<-- Website Name -->
+Go Book
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<-- Website URL -->
+https://gobook-e3647.web.app/
 
-Currently, two official plugins are available:
+<-- Feature -->
+1 --> More than 90% of the functionalities here are dynamic features
+2 --> We can see the Best selling book based on rating in the home page
+3 --> We can borrow book and the number of book quantity decreases from the overall book quantity
+4 --> We can also return it and the book quantity will increase as such
+5 --> After there is not a book available the borrow button will be disabled
+6 --> Categories are statically selected so that no one can try to create a new category
+7 --> you can also update the book's details in the update page section 
+8 --> You can add new books as well 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<-- Selected Category -->
+Assignment_category_0008
