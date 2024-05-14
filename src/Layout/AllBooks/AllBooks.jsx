@@ -5,6 +5,7 @@ import { useLoaderData } from "react-router-dom";
 import BookTable from "./BookTable";
 import { CiGrid41 } from "react-icons/ci";
 import { FaTableList } from "react-icons/fa6";
+import { Tooltip } from "react-tooltip";
 
 const AllBooks = () => {
     
@@ -28,16 +29,16 @@ const AllBooks = () => {
     
 
     return (
-        <div className="bg-gradient-to-bl from-green-300 to-white">
-            <div className="my-5 bg-green-300">
+        <div className="bg-gradient-to-bl from-cyan-800 to-white">
+            <div className="my-5 bg-gradient-to-tr from-cyan-600 to-gray-500">
                 <h2 className="text-3xl font-bold text-center">All Books Section</h2>
             </div>
             <div className="mx-auto text-center mb-10">
-                <button onClick={handleAvailable} className="btn btn-accent text-white font-bold bg-green-600">Show Available Books</button>
+                <button onClick={handleAvailable} className="btn btn-accent text-white font-bold bg-cyan-600">Show Available Books</button>
             </div>
             <div className="mx-auto text-right mr-16 mb-3">
-            <button onClick={handleTable} className="btn mr-5 bg-gray-500 border-none"><FaTableList className="text-2xl text-white"></FaTableList></button>
-            <button onClick={handleGrid} className="btn bg-gray-500 border-none"><CiGrid41 className="text-2xl text-white font-bold"></CiGrid41></button>
+            <button data-tooltip-content={'List view'} data-tooltip-id="list" onClick={handleTable} className="btn mr-5 bg-gray-500 border-none"><Tooltip id="list"></Tooltip><FaTableList className="text-2xl text-white"></FaTableList></button>
+            <button data-tooltip-content={'Grid view'} data-tooltip-id="grid" onClick={handleGrid} className="btn bg-gray-500 border-none"><Tooltip id="grid"></Tooltip><CiGrid41 className="text-2xl text-white font-bold"></CiGrid41></button>
             </div>
             <div>
                 {

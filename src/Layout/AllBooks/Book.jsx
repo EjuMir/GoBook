@@ -24,7 +24,7 @@ const Book = ({ e }) => {
                         <div>
                             <div>
                                 {
-                                    quantity > 0 ? <h2 className="text-green-600 text-lg font-bold">Available</h2> : <h2 className="text-red-500 text-lg font-bold">Out Of Stock</h2>
+                                    quantity > 0 ? <h2 className="text-cyan-600 text-lg font-bold">Available</h2> : <h2 className="text-red-500 text-lg font-bold">Out Of Stock</h2>
                                 }
                             </div>
                         </div>

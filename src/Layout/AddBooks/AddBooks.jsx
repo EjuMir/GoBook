@@ -36,7 +36,7 @@ const AddBooks = () => {
         const addBook = { name, image, quantity, author, rating, contents, description, category };
         console.log(addBook);
 
-        axios.post('http://localhost:5000/allBooks', addBook, {withCredentials:true})
+        axios.post('http://localhost:5000/allBooks', addBook)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({
@@ -55,7 +55,7 @@ const AddBooks = () => {
     return (
         <div>
             <ToastContainer></ToastContainer>
-            <div className="card lg:card-center text-center bg-base-100 shadow-xl bg-gradient-to-tr from-green-300 to-white">
+            <div className="card lg:card-center text-center bg-base-100 shadow-xl bg-gradient-to-tr from-cyan-800 to-white">
                 <figure><img className="lg:mt-5" src="https://www.comprehensionconnection.net/wp-content/uploads/2014/07/level-your-library-4963667.jpg" alt="Album" /></figure>
                 <div className="card-body">
                     <form onSubmit={handleSubmit}>
@@ -95,7 +95,7 @@ const AddBooks = () => {
                             </div>
                         </div>
                         <div>
-                            <input type="submit" value="ADD BOOK" className="btn btn-accent bg-green-900 text-white text-xl font-bold w-3/4 mt-5" />
+                            <input type="submit" value="ADD BOOK" className="btn btn-accent bg-cyan-900 text-white text-xl font-bold w-3/4 mt-5" />
                         </div>
                     </form>
                 </div>

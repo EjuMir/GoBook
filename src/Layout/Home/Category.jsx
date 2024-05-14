@@ -16,9 +16,9 @@ const Category = () => {
    },[])
 
    return (
-        <div className="my-14 bg-green-300 p-4">
+        <div className="my-14 bg-cyan-800 p-4">
             <div>
-                <h2 className="text-3xl font-bold text-center mb-5 bg-gradient-to-br from-green-400 to-white">Select Your Category</h2>
+                <h2 className="text-3xl font-bold text-center mb-5 bg-gradient-to-br from-cyan-700 to-gray-500">Select Your Category</h2>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-7 place-items-center">
                 {

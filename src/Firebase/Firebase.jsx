@@ -1,11 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from "./firebase.config";
-import axios from "axios";
+
 
 export const AuthFirebase = createContext(null);
 
-const Firebase = ({ children }) => {
+const Firebase = ({children}) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -36,27 +36,27 @@ const Firebase = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             
-            const userEmail = currentUser?.email || user?.email;
-            const loggedUser = { email: userEmail }
+            // const userEmail = currentUser?.email || user?.email;
+            // const loggedUser = { email: userEmail }
             setUser(currentUser);
             setLoading(false);
-            if (currentUser) {
-                axios.post('http://localhost:5000/token', loggedUser, { withCredentials: true })
-                    .then(res => console.log('token', res.data))
-            }
-            else {
-                 axios.post('http://localhost:5000/logout', loggedUser, { withCredentials: true })
-                   .then(res => console.log('token', res.data))
+            // if (currentUser) {
+            //     axios.post('http://localhost:5000/token', loggedUser, { withCredentials: true })
+            //         .then(res => console.log('token', res.data))
+            // }
+            // else {
+            //      axios.post('http://localhost:5000/logout', loggedUser, { withCredentials: true })
+            //        .then(res => console.log('token', res.data))
                
-            }
+            // }
         });
         return () => {
             unSubscribe();
 
         }
-    }, [auth])
+    }, [])
 
-    const authInfo = { user, setUser, createUser, loginUser, googleUser, logOut, loading }
+    const authInfo = {user, setUser, createUser, loginUser, googleUser, logOut, loading}
     return (
         <AuthFirebase.Provider value={authInfo}>
             {children}

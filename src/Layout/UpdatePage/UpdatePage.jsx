@@ -47,7 +47,7 @@ const UpdatePage = () => {
     return (
         <div>
             <ToastContainer></ToastContainer>
-            <div className="card lg:card-center text-center bg-base-100 shadow-xl bg-gradient-to-tr from-green-300 to-white">
+            <div className="card lg:card-center text-center bg-base-100 shadow-xl bg-gradient-to-tr from-cyan-800 to-white">
                 <h2 className="text-xl font-bold">Update</h2>
                 <div className="card-body">
                     <form onSubmit={handleSubmit}>
@@ -79,7 +79,7 @@ const UpdatePage = () => {
                             </div>
                         </div>
                         <div>
-                            <input type="submit" value="Submit" className="btn btn-accent bg-green-900 text-white text-xl font-bold w-3/4 mt-5" />
+                            <input type="submit" value="Submit" className="btn btn-accent bg-cyan-900 text-white text-xl font-bold w-3/4 mt-5" />
                         </div>
                     </form>
                 </div>

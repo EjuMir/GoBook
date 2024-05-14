@@ -4,7 +4,10 @@ import { CgProfile } from "react-icons/cg";
 import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip'
 import { AuthFirebase } from "../../Firebase/Firebase";
-
+import { IoHome } from "react-icons/io5";
+import { ImBooks } from "react-icons/im";
+import { AiFillFileAdd } from "react-icons/ai";
+import { FaHandHoldingMedical } from "react-icons/fa";
 
 const Navbar = () => {
 
@@ -29,23 +32,23 @@ const Navbar = () => {
 
 
     const navLink = <>
-        <NavLink to='/' className={({ isActive }) => isActive ? 'bg-green-500 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >Home</NavLink>
-        <NavLink to='/allBooks' className={({ isActive }) => isActive ? 'bg-green-500 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >All Books</NavLink>
-        <NavLink to='/addBooks' className={({ isActive }) => isActive ? 'bg-green-500 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >Add Books</NavLink>
-        <NavLink to='/borrowedBooks' className={({ isActive }) => isActive ? 'bg-green-500 text-white font-bold rounded-lg px-4 p-2' : 'font-bold px-4 py-2'} >Borrowed Books</NavLink>
-        <div className="text-center my-auto lg:rotate-90">
+        <NavLink to='/' data-tooltip-content={'Home'} data-tooltip-id="home" className={({ isActive }) => isActive ? ' text-white font-bold text-3xl rounded-lg px-4 p-2' : 'font-bold text-[22px] px-4 py-2'} ><Tooltip id="home"></Tooltip><IoHome></IoHome></NavLink>
+        <NavLink to='/allBooks' data-tooltip-content={'All Books'} data-tooltip-id="allBooks" className={({ isActive }) => isActive ? 'text-white font-bold text-3xl rounded-lg px-4 p-2' : 'font-bold text-[24px] px-4 py-2'} ><Tooltip id="allBooks"></Tooltip><ImBooks></ImBooks></NavLink>
+        <NavLink to='/addBooks' data-tooltip-content={'Add Book'} data-tooltip-id="addBooks" className={({ isActive }) => isActive ? 'text-white font-bold rounded-lg text-3xl px-4 p-2' : 'font-bold text-[22px] px-4 py-2'} ><Tooltip id="addBooks"></Tooltip><AiFillFileAdd></AiFillFileAdd></NavLink>
+        <NavLink to='/borrowedBooks' data-tooltip-content={'Borrow Books'} data-tooltip-id="borrowBooks" className={({ isActive }) => isActive ? 'text-white font-bold rounded-lg text-3xl px-4 p-2' : 'font-bold text-[22px] px-4 py-2'} ><Tooltip id="borrowBooks"></Tooltip><FaHandHoldingMedical></FaHandHoldingMedical></NavLink>
+        <div className="lg:text-center lg:my-auto">
             <input onChange={handleChange} type="checkbox" className="toggle theme-controller bg-white border-sky-400 [--tglbg:theme(colors.sky.500)] checked:bg-blue-300 checked:border-blue-800 checked:[--tglbg:theme(colors.blue.900)] row-start-1 col-start-1 col-span-2" />
         </div>
     </>
     return (
 
-        <div className="navbar bg-gradient-to-tl from-white to-green-400 mb-10">
+        <div className="navbar bg-gradient-to-tl from-gray-500 to-cyan-900 mb-10">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[2] p-2 shadow bg-cyan-700 rounded-box w-20">
                         {navLink}
                     </ul>
                 </div>
@@ -55,18 +58,18 @@ const Navbar = () => {
                     </div>
                 </NavLink>
             </div>
-            <div className="navbar-center border-2 border-cyan-800 border-opacity-20 rounded-md hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+            <div className="navbar-center border-cyan-800 border-opacity-20 rounded-md hidden lg:flex">
+                <ul className="menu menu-horizontal px-1 gap-10">
                     {navLink}
                 </ul>
             </div>
 
             <div className="navbar-end gap-2">
 
-                <NavLink to='/signUp'><a className="btn bg-green-600 text-white font-bold">Sign Up</a></NavLink>
+                <NavLink to='/signUp'><a className="btn bg-cyan-600 text-white font-bold">Sign Up</a></NavLink>
 
                 {
-                    user ? <a onClick={() => logOut()} className="btn bg-red-500 text-white font-bold">Sign Out</a> : <NavLink to='/signIn'><a className="btn bg-green-800 text-white font-bold">Sign In</a></NavLink>
+                    user ? <a onClick={() => logOut()} className="btn bg-red-500 text-white font-bold">Sign Out</a> : <NavLink to='/signIn'><a className="btn bg-cyan-800 text-white font-bold">Sign In</a></NavLink>
 
                 }
 

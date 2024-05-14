@@ -14,6 +14,7 @@ import Details from "../Layout/Details/Details";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import UpdatePage from "../Layout/UpdatePage/UpdatePage";
+import BestSelling from "../Layout/Home/BestSelling";
 
 const router = createBrowserRouter([
     {
@@ -64,6 +65,11 @@ const router = createBrowserRouter([
           path:'/updatePage/:id',
           element:<PrivateRoute><UpdatePage></UpdatePage></PrivateRoute>,
           loader : ({params})=>fetch(`http://localhost:5000/updatePage/${params.id}`)
+        },
+        {
+          path:'/',
+          element: <BestSelling></BestSelling>,
+          loader:()=>fetch('http://localhost:5000/allBooks')
         }
       ]
     },

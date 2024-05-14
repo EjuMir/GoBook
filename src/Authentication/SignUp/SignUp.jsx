@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
 import { updateProfile } from "firebase/auth";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthFirebase } from "../../Firebase/Firebase";
@@ -12,11 +12,7 @@ const SignUp = () => {
     const { createUser } = useContext(AuthFirebase);
     const [pass, showPass] = useState(false);
     const [error, setError] = useState('');
-    const { loading } = useContext(AuthFirebase)
-
-    if (loading) {
-        return <div className="mx-auto text-center mt-10"><p className="loading loading-bars loading-lg"></p></div>
-    }
+    const navigate = useNavigate();
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -25,7 +21,6 @@ const SignUp = () => {
         const photoUrl = form.get('text');
         const email = form.get('email');
         const password = form.get('password');
-        console.log(name, photoUrl, email, password);
 
         setError('');
 
@@ -60,9 +55,10 @@ const SignUp = () => {
                     displayName: name,
                     photoURL: photoUrl
                 })
+              toast.success('You are registered successfully')
                 setTimeout(() => {
-                    toast.success('You are registered successfully')
-                }, 1000);
+                   navigate('/');
+                }, 1600);
                 setTimeout(() => {
                     window.location.reload();
                 }, 1600);
