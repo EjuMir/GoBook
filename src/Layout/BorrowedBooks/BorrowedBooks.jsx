@@ -7,7 +7,7 @@ const BorrowedBooks = () => {
     const [borrow, setBorrow] = useState([]);
     const { user } = useContext(AuthFirebase);
     
-    const url = `http://localhost:5000/borrowedBooks?email=${user?.email}`
+    const url = `https://gobook-server.vercel.app/borrowedBooks?email=${user?.email}`
 
     useEffect(() => {
         fetch(url)

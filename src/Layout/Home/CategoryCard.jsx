@@ -14,7 +14,7 @@ const CategoryCard = ({data}) => {
     return (
         <div onMouseOver={()=>setIsHovered(true)}
                 onMouseOut={()=>setIsHovered(false)}>
-                    <Link to={`http://localhost:5173/allBooks/${category}`}>
+                    <Link to={`/allBooks/${category}`}>
                         <div className="relative">
                         <div className="border-2">
                         <img style={{opacity:opacity, transition:transition}} className="bg-black bg-opacity-40 h-96 w-72" src={image} alt="" />

@@ -6,10 +6,12 @@ const BookTable = ({ element }) => {
    
 
     const handleReturn = (id) =>{
-        axios.put('http://localhost:5000/allBooks', element)
-        .then(res=>console.log(res.data))
+        axios.put('https://gobook-server.vercel.app/allBooks', element)
+        .then(
+            // res=>console.log(res.data)
+        )
 
-        axios.delete(`http://localhost:5000/borrowedBooks/${id}`, element)
+        axios.delete(`https://gobook-server.vercel.app/borrowedBooks/${id}`, element)
         .then(res=>{
             if(res.data.deletedCount >= 1){
                 Swal.fire({

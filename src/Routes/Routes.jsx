@@ -37,7 +37,7 @@ const router = createBrowserRouter([
         {
           path:"/allBooks",
           element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
-          loader:()=>fetch('http://localhost:5000/allBooks')
+          loader:()=>fetch('https://gobook-server.vercel.app/allBooks')
         },
         {
           path:"/addBooks",
@@ -50,7 +50,7 @@ const router = createBrowserRouter([
         {
           path:"/allBooks/:id",
           element: <PrivateRoute><AllBooks></AllBooks></PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/allBooks/${params.id}`)
+          loader:({params})=>fetch(`https://gobook-server.vercel.app/allBooks/${params.id}`)
         },
         {
           path:'/',
@@ -59,12 +59,12 @@ const router = createBrowserRouter([
         {
           path:'/details/:id',
           element:<PrivateRoute><Details></Details></PrivateRoute>,
-          loader : ({params})=>fetch(`http://localhost:5000/details/${params.id}`)
+          loader : ({params})=>fetch(`https://gobook-server.vercel.app/details/${params.id}`)
         },
         {
           path:'/updatePage/:id',
           element:<PrivateRoute><UpdatePage></UpdatePage></PrivateRoute>,
-          loader : ({params})=>fetch(`http://localhost:5000/updatePage/${params.id}`)
+          loader : ({params})=>fetch(`https://gobook-server.vercel.app/updatePage/${params.id}`)
         },
         {
           path:'/',

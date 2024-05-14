@@ -41,12 +41,17 @@ const Firebase = ({ children }) => {
             setUser(currentUser);
             setLoading(false);
             if (currentUser) {
-                axios.post('http://localhost:5000/token', loggedUser, { withCredentials: true })
-                    .then(res => console.log('token', res.data))
+                axios.post('https://gobook-server.vercel.app/token', loggedUser, { withCredentials: true })
+                    .then(
+                        // res => 
+                        // console.log('token', res.data)
+                    )
             }
             else {
-                 axios.post('http://localhost:5000/logout', loggedUser, { withCredentials: true })
-                   .then(res => console.log('token', res.data))
+                 axios.post('https://gobook-server.vercel.app/logout', loggedUser, { withCredentials: true })
+                   .then(
+                    // res => console.log('token', res.data)
+                )
                
             }
         });

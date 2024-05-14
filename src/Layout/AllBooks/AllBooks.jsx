@@ -17,7 +17,7 @@ const AllBooks = () => {
     const handleAvailable = () => {
         const available = bookLoaded.filter(e=> e.quantity > 0)
         setBook(available);
-        console.log(available);
+        // console.log(available);
     }
 
     const handleTable = () => {

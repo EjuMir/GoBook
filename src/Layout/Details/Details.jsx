@@ -10,7 +10,7 @@ const Details = () => {
     const detailofBook = useLoaderData();
     const { name, image, category, description, quantity } = detailofBook;
     const { user } = useContext(AuthFirebase);
-    console.log(quantity);
+    // console.log(quantity);
 
     const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -44,9 +44,9 @@ const Details = () => {
          const returnDate = form.returnDate.value;
 
          const borrowBook = {email, borrowDate, returnDate, image, category, name};
-         console.log(borrowBook);
+        //  console.log(borrowBook);
 
-         axios.post('http://localhost:5000/borrowedBooks', borrowBook)
+         axios.post('https://gobook-server.vercel.app/borrowedBooks', borrowBook)
          .then (res => {
             if(res.data.insertedId){
                 {Swal.fire({
@@ -67,8 +67,10 @@ const Details = () => {
            
                 // form.reset();
 
-           axios.put('http://localhost:5000/borrowedBooks', borrowBook)
-           .then(res=>console.log(res))
+           axios.put('https://gobook-server.vercel.app/borrowedBooks', borrowBook)
+           .then(
+            // res=>console.log(res)
+        )
     }
 
     return (

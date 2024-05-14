@@ -34,9 +34,9 @@ const AddBooks = () => {
         }
 
         const addBook = { name, image, quantity, author, rating, contents, description, category };
-        console.log(addBook);
+        // console.log(addBook);
 
-        axios.post('http://localhost:5000/allBooks', addBook)
+        axios.post('https://gobook-server.vercel.app/allBooks', addBook)
             .then(res => {
                 if (res.data.insertedId) {
                     Swal.fire({

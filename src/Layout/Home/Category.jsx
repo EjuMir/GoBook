@@ -9,7 +9,7 @@ const Category = () => {
    const [book, setBook] = useState([])
 
    useEffect(()=>{
-    axios.get('http://localhost:5000/category')
+    axios.get('https://gobook-server.vercel.app/category')
     .then((response)=>{
         setBook(response.data)
     })

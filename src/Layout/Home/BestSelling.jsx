@@ -8,7 +8,7 @@ const BestSelling = () => {
     const [book, setBook] = useState([])
     
     useEffect(()=>{
-     axios.get('http://localhost:5000/allBooks')
+     axios.get('https://gobook-server.vercel.app/allBooks')
      .then((response)=>{
          const filter = response.data.filter(elem=>elem.rating == 5)
          setBook(filter)

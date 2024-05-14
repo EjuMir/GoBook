@@ -29,11 +29,11 @@ const UpdatePage = () => {
 
         const updateBook = { name, image, author, rating, category };
 
-        console.log(updateBook);
+        // console.log(updateBook);
 
-        axios.put(`http://localhost:5000/allBooks/${_id}`, updateBook)
+        axios.put(`https://gobook-server.vercel.app/allBooks/${_id}`, updateBook)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.modifiedCount > 0) {
                     Swal.fire({
                         icon: "success",
