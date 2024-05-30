@@ -24,8 +24,14 @@ const AllBooks = () => {
           e.preventDefault();
           const form = e.target;
           const search = form.search.value;
-          const searchResult = bookLoaded.filter(element => element.name === search)
-          setBook(searchResult);
+          if(search == ""){
+            setBook(bookLoaded);
+            return;
+          }
+          else {
+            const searchResult = bookLoaded.filter(element => element.name.toLowerCase() === search.toLowerCase());
+            setBook(searchResult);
+          }
     }
 
     const handleTable = () => {
@@ -44,8 +50,8 @@ const AllBooks = () => {
             <div className="mx-auto text-center mb-10">
                 <form onSubmit={handleSearch}>
                     <div>
-                      <input type="text" name="search" placeholder="Search Your Book" className="input input-bordered max-w-xs" />
-                      <input type="submit" className="btn btn-accent" value="Search" />
+                      <input type="text" name="search" placeholder="Search Your Book" className="p-3 rounded-l-xl max-w-xs mb-5"/>
+                      <input type="submit" className="btn rounded-none rounded-r-xl btn-accent absolute" value="Search" />
                     </div>
                 </form>
                 <button onClick={handleAvailable} className="btn btn-accent text-white font-bold bg-cyan-600">Show Available Books</button>
