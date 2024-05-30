@@ -8,16 +8,24 @@ import { FaTableList } from "react-icons/fa6";
 import { Tooltip } from "react-tooltip";
 
 const AllBooks = () => {
-    
+
     const bookLoaded = useLoaderData();
 
     const [book, setBook] = useState(bookLoaded)
     const [table, setTable] = useState(false);
 
     const handleAvailable = () => {
-        const available = bookLoaded.filter(e=> e.quantity > 0)
+        const available = bookLoaded.filter(e => e.quantity > 0)
         setBook(available);
         // console.log(available);
+    }
+
+    const handleSearch = e => {
+          e.preventDefault();
+          const form = e.target;
+          const search = form.search.value;
+          const searchResult = bookLoaded.filter(element => element.name === search)
+          setBook(searchResult);
     }
 
     const handleTable = () => {
@@ -26,7 +34,7 @@ const AllBooks = () => {
     const handleGrid = () => {
         setTable(false);
     }
-    
+
 
     return (
         <div className="bg-gradient-to-bl from-cyan-800 to-white">
@@ -34,48 +42,54 @@ const AllBooks = () => {
                 <h2 className="text-3xl font-bold text-center">All Books Section</h2>
             </div>
             <div className="mx-auto text-center mb-10">
+                <form onSubmit={handleSearch}>
+                    <div>
+                      <input type="text" name="search" placeholder="Search Your Book" className="input input-bordered max-w-xs" />
+                      <input type="submit" className="btn btn-accent" value="Search" />
+                    </div>
+                </form>
                 <button onClick={handleAvailable} className="btn btn-accent text-white font-bold bg-cyan-600">Show Available Books</button>
             </div>
             <div className="mx-auto text-right mr-16 mb-3">
-            <button data-tooltip-content={'List view'} data-tooltip-id="list" onClick={handleTable} className="btn mr-5 bg-gray-500 border-none"><Tooltip id="list"></Tooltip><FaTableList className="text-2xl text-white"></FaTableList></button>
-            <button data-tooltip-content={'Grid view'} data-tooltip-id="grid" onClick={handleGrid} className="btn bg-gray-500 border-none"><Tooltip id="grid"></Tooltip><CiGrid41 className="text-2xl text-white font-bold"></CiGrid41></button>
+                <button data-tooltip-content={'List view'} data-tooltip-id="list" onClick={handleTable} className="btn mr-5 bg-gray-500 border-none"><Tooltip id="list"></Tooltip><FaTableList className="text-2xl text-white"></FaTableList></button>
+                <button data-tooltip-content={'Grid view'} data-tooltip-id="grid" onClick={handleGrid} className="btn bg-gray-500 border-none"><Tooltip id="grid"></Tooltip><CiGrid41 className="text-2xl text-white font-bold"></CiGrid41></button>
             </div>
             <div>
                 {
                     table ? <div className="overflow-x-auto">
-                    <table className="table">
-                        {/* head */}
-                        <thead>
-                            <tr>
-                                <td></td>
-                                <td>Name</td>
-                                <th>Category</th>
-                                <th>Author</th>
-                                <th>Rating</th>
-                            </tr>
-                        </thead>
-                        <tbody className="gap-5">
+                        <table className="table">
+                            {/* head */}
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <td>Name</td>
+                                    <th>Category</th>
+                                    <th>Author</th>
+                                    <th>Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody className="gap-5">
+                                {
+                                    book.map(data => <BookTable key={data._id} data={data}></BookTable>)
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                        :
+
+                        <div className="grid grid-cols-1 lg:grid-cols-3 place-items-center gap-5">
                             {
-                                book.map(data => <BookTable key={data._id} data={data}></BookTable>)
+                                book.map(e => <Book key={e._id} e={e}></Book>)
                             }
-    
-                        </tbody>
-                    </table>
-                </div> 
-                
-                :
-                
-                <div className="grid grid-cols-1 lg:grid-cols-3 place-items-center gap-5">
-                    {
-                        book.map(e => <Book key={e._id} e={e}></Book>)
-                    }
-                </div>
-                     
-                
+                        </div>
+
+
                 }
-                 </div>
             </div>
-     
+        </div>
+
     );
 };
 

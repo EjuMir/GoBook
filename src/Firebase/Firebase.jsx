@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from "./firebase.config";
-import axios from "axios";
+// import axios from "axios";
 
 export const AuthFirebase = createContext(null);
 
@@ -36,24 +36,24 @@ const Firebase = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             
-            const userEmail = currentUser?.email || user?.email;
-            const loggedUser = { email: userEmail }
+            // const userEmail = currentUser?.email || user?.email;
+            // const loggedUser = { email: userEmail }
             setUser(currentUser);
             setLoading(false);
-            if (currentUser) {
-                axios.post('https://gobook-server.vercel.app/token', loggedUser, { withCredentials: true })
-                    .then(
-                        // res => 
-                        // console.log('token', res.data)
-                    )
-            }
-            else {
-                 axios.post('https://gobook-server.vercel.app/logout', loggedUser, { withCredentials: true })
-                   .then(
-                    // res => console.log('token', res.data)
-                )
+            // if (currentUser) {
+            //     axios.post('https://gobook-server.vercel.app/token', loggedUser, { withCredentials: true })
+            //         .then(
+            //             // res => 
+            //             // console.log('token', res.data)
+            //         )
+            // }
+            // else {
+            //      axios.post('https://gobook-server.vercel.app/logout', loggedUser, { withCredentials: true })
+            //        .then(
+            //         // res => console.log('token', res.data)
+            //     )
                
-            }
+            // }
         });
         return () => {
             unSubscribe();

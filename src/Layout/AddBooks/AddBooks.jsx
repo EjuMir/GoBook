@@ -23,7 +23,6 @@ const AddBooks = () => {
         const description = form.shortDes.value;
 
 
-
         if (rating > 5) {
             toast.error('Rating must be between 1-5');
             return;
@@ -34,7 +33,7 @@ const AddBooks = () => {
         }
 
         const addBook = { name, image, quantity, author, rating, contents, description, category };
-        // console.log(addBook);
+        console.log(addBook);
 
         axios.post('https://gobook-server.vercel.app/allBooks', addBook)
             .then(res => {
