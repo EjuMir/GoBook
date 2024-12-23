@@ -13,6 +13,3 @@ https://gobook-e3647.web.app/
 6 --> Categories are statically selected so that no one can try to create a new category
 7 --> you can also update the book's details in the update page section 
 8 --> You can add new books as well 
-
-<-- Selected Category -->
-Assignment_category_0008
